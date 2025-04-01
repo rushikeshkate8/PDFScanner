@@ -6,11 +6,10 @@ import android.content.IntentSender
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.BeginSignInRequest.GoogleIdTokenRequestOptions
 import com.google.android.gms.auth.api.identity.SignInClient
-import com.google.firebase.auth.GoogleAuthCredential
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
-import com.google.firebase.ktx.Firebase
 import com.rushikesh.pdfscanner.R
+import com.rushikesh.pdfscanner.data.models.User
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.tasks.await
@@ -37,8 +36,8 @@ suspend fun signInWithIntent(intent: Intent): SignInResult {
     val googleCredentials = GoogleAuthProvider.getCredential(googleIdToken, null)
     return try {
         val user = auth.signInWithCredential(googleCredentials).await().user
-        SignInResult(userData = user?.run {
-            UserData(uid, displayName, photoUrl.toString())
+        SignInResult(user = user?.run {
+            User(uid, displayName!!, photoUrl.toString())
         }, errorMessage = null)
     } catch (e: Exception) {
         e.printStackTrace()
@@ -66,7 +65,7 @@ suspend fun signInWithIntent(intent: Intent): SignInResult {
             if(e is CancellationException) throw e
         }
     }
-    fun getSignedInUser(): UserData? = auth.currentUser?.run {
-        UserData(uid, displayName, photoUrl.toString())
+    fun getSignedInUser(): User? = auth.currentUser?.run {
+        User(uid, displayName!!, photoUrl.toString())
     }
 }
