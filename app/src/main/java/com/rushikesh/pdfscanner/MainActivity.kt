@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.rushikesh.pdfscanner.ui.navigation.AppNavHost
+import com.rushikesh.pdfscanner.ui.screens.ComposeReportScreen
 import com.rushikesh.pdfscanner.ui.theme.PDFScannerTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +23,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             PDFScannerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    AppNavHost()
+                    //AppNavHost()
+                    ComposeReportScreen()
                 }
             }
         }
