@@ -28,7 +28,7 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltVi
                 viewModel.signInWithIntent(
                     intent = result.data ?: return@rememberLauncherForActivityResult
                 )
-                navController.navigate("home")
+                navController.navigate("devices")
             }
         }
     )

@@ -7,7 +7,9 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.rushikesh.pdfscanner.ui.navigation.AppNavHost
 import com.rushikesh.pdfscanner.ui.screens.CustomBottomBar
@@ -26,10 +28,12 @@ class MainActivity : ComponentActivity() {
         //enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry?.destination?.route
             MaterialTheme(colorScheme = if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme) {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    bottomBar = { CustomBottomBar(navController) }) { innerPadding ->
+                    bottomBar = { if(currentRoute != "login") CustomBottomBar(navController) }) { innerPadding ->
 //                    //AppNavHost()
 //                    //ComposeReportScreen()
 //                    ImageCaptureScreen()
