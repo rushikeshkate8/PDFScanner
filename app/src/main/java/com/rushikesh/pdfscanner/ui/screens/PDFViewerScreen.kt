@@ -41,13 +41,13 @@ import java.net.URL
 fun ComposeReportScreen(pdfUrl: String = "https://fssservices.bookxpert.co/GeneratedPDF/Companies/nadc/2024-2025/BalanceSheet.pdf") {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text("Balance Sheet Report") },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
-                )
-            )
+//            TopAppBar(
+//                title = { Text("Balance Sheet Report") },
+//                colors = TopAppBarDefaults.topAppBarColors(
+//                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+//                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+//                )
+//            )
         }
     ) { paddingValues ->
         Box(

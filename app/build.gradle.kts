@@ -83,4 +83,8 @@ dependencies {
 
     // Gson converter for parsing JSON
     implementation(libs.converter.gson)
+
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
+    implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+
 }
