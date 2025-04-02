@@ -44,7 +44,7 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltVi
             }
         }, modifier = Modifier.fillMaxWidth()) {
             Image(
-                painter = painterResource(if (!isSystemInDarkTheme()) R.drawable.android_light_rd_ctn else R.drawable.android_dark_rd_ctn),
+                painter = painterResource(if (!isSystemInDarkTheme()) R.drawable.google_login_rd_ctn else R.drawable.google_login_rd_ctn),
                 "Continue using Google",
                 modifier = Modifier.fillMaxWidth()
             )
